@@ -3,9 +3,11 @@
 import { useFormState, useFormStatus } from 'react-dom';
 import { login } from '@/app/actions';
 import { useState } from 'react';
+import { Eye, EyeOff } from 'lucide-react';
 
 export default function LoginPage() {
   const [error, setError] = useState<string | null>(null);
+  const [showPassword, setShowPassword] = useState(false);
 
   async function handleLogin(formData: FormData) {
     const res = await login(formData);
@@ -51,13 +53,22 @@ export default function LoginPage() {
 
           <div className="space-y-1">
             <label className="block text-sm font-bold text-gray-700 ml-1">Password</label>
-            <input
-              type="password"
-              name="password"
-              required
-              placeholder="Enter your password"
-              className="block w-full rounded-xl border-gray-200 bg-gray-50 px-4 py-3.5 text-gray-900 focus:border-blue-600 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-600/20 transition-all font-medium"
-            />
+            <div className="relative">
+              <input
+                type={showPassword ? "text" : "password"}
+                name="password"
+                required
+                placeholder="Enter your password"
+                className="block w-full rounded-xl border-gray-200 bg-gray-50 px-4 py-3.5 pr-12 text-gray-900 focus:border-blue-600 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-600/20 transition-all font-medium"
+              />
+              <button 
+                type="button" 
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 p-1"
+              >
+                {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+              </button>
+            </div>
           </div>
 
           <SubmitButton />
