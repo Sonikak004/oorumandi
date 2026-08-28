@@ -44,7 +44,7 @@ export default function LoginPage() {
               type="email"
               name="email"
               required
-              defaultValue="vendor@oorumandi.com"
+              placeholder="Enter your email"
               className="block w-full rounded-xl border-gray-200 bg-gray-50 px-4 py-3.5 text-gray-900 focus:border-blue-600 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-600/20 transition-all font-medium"
             />
           </div>
@@ -55,27 +55,14 @@ export default function LoginPage() {
               type="password"
               name="password"
               required
-              defaultValue="password123"
+              placeholder="Enter your password"
               className="block w-full rounded-xl border-gray-200 bg-gray-50 px-4 py-3.5 text-gray-900 focus:border-blue-600 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-600/20 transition-all font-medium"
             />
           </div>
 
           <SubmitButton />
           
-          <div className="mt-8 pt-6 border-t border-gray-100">
-            <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3 text-center">Demo Accounts</p>
-            <div className="grid grid-cols-2 gap-3 text-sm">
-              <div className="bg-gray-50 p-3 rounded-lg border border-gray-100">
-                <span className="font-bold text-gray-700 block mb-1">Vendor</span>
-                <span className="text-gray-500 text-xs">vendor@oorumandi.com<br/>password123</span>
-              </div>
-              <div className="bg-gray-50 p-3 rounded-lg border border-gray-100">
-                <span className="font-bold text-gray-700 block mb-1">Admin</span>
-                <span className="text-gray-500 text-xs">admin@oorumandi.com<br/>password123</span>
-              </div>
-            </div>
-          </div>
-        </form>
+          </form>
       </div>
     </div>
   );

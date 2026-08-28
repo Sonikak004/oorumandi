@@ -60,6 +60,8 @@ const PRODUCTS_DB: Record<string, Product[]> = {
 export default function OrderClientView({ branches, initialCategory }: { branches: any[], initialCategory: string }) {
   const router = useRouter();
   const [activeCategory, setActiveCategory] = useState(initialCategory);
+  const [searchQuery, setSearchQuery] = useState(initialSearch);
+  const [isSearching, setIsSearching] = useState(!!initialSearch);
   const [cart, setCart] = useState<CartState>({});
   const [isLoaded, setIsLoaded] = useState(false);
   
@@ -182,7 +184,9 @@ export default function OrderClientView({ branches, initialCategory }: { branche
           <h1 className="text-lg font-extrabold capitalize text-gray-900">Explore</h1>
         </div>
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-500 cursor-pointer shadow-sm hover:bg-gray-50 transition-colors">
+          <div 
+            onClick={() => setIsSearching(!isSearching)}
+            className={`w-10 h-10 rounded-full border flex items-center justify-center cursor-pointer shadow-sm transition-colors ${isSearching ? 'bg-[#ef4f5f] border-[#ef4f5f] text-white' : 'border-gray-200 text-gray-500 hover:bg-gray-50'}`}>
             <Search className="w-4 h-4" />
           </div>
           <div className="relative cursor-pointer group" onClick={() => setCartOpen(true)}>

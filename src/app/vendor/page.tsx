@@ -18,14 +18,15 @@ export default function VendorDashboard() {
         
         {/* Search bar */}
         <div className="mb-8">
-          <div className="w-full bg-gray-50 border border-gray-200 rounded-2xl flex items-center px-4 py-3.5 shadow-sm focus-within:ring-2 focus-within:ring-[#ef4f5f]/20 focus-within:border-[#ef4f5f] transition-all">
-            <Search className="text-gray-400 mr-3 w-5 h-5" />
+          <form action="/vendor/shop" method="GET" className="w-full bg-gray-50 border border-gray-200 rounded-2xl flex items-center px-4 py-3.5 shadow-sm focus-within:ring-2 focus-within:ring-[#ef4f5f]/20 focus-within:border-[#ef4f5f] transition-all">
+            <button type="submit"><Search className="text-gray-400 mr-3 w-5 h-5" /></button>
             <input 
               type="text" 
+              name="search"
               placeholder="Search products or categories..." 
               className="flex-1 bg-transparent border-none text-[#1a2f4c] text-sm font-medium outline-none placeholder:font-normal placeholder:text-gray-400"
             />
-          </div>
+          </form>
         </div>
 
         {/* Categories Header */}
