@@ -57,7 +57,7 @@ const PRODUCTS_DB: Record<string, Product[]> = {
   ]
 };
 
-export default function OrderClientView({ branches, initialCategory }: { branches: any[], initialCategory: string }) {
+export default function OrderClientView({ branches, initialCategory, initialSearch = "" }: { branches: any[], initialCategory: string, initialSearch?: string }) {
   const router = useRouter();
   const [activeCategory, setActiveCategory] = useState(initialCategory);
   const [searchQuery, setSearchQuery] = useState(initialSearch);
